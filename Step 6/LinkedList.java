@@ -56,7 +56,7 @@ public class LinkedList {
     private static void print(Node head){
         while(head != null){
             System.out.print(head.data + " -> ");
-            head = head.next;;
+            head = head.next;
         }
         System.out.println();
     }
