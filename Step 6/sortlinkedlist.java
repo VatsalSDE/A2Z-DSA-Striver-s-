@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 class ListNode{
     int data;
@@ -40,16 +41,7 @@ public class sortlinkedlist {
             temp=temp.next;
         }
 
-        for(int i=0;i<arr.size();i++){
-            for(int j=i+1 ; j<arr.size() ;j++){
-                if(arr.get(i)>arr.get(j)){
-                    // swap
-                    int t=arr.get(i);
-                    arr.set(i,arr.get(j));
-                    arr.set(j,t);
-            }
-        }
-        }
+        Collections.sort(arr);
         // now we have the sorted array list so just replace the data
         temp=head;
         int i =0;
