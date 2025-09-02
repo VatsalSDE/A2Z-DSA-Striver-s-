@@ -168,7 +168,7 @@ public class DoublYLinkedList {
         temp.back=newNode;
     }
     public static void main(String[] args) {
-        int[] arr= {12,23,1,34,56,78,90,24,45};
+        int[] arr= {12,10,1,10,56,10,10,24,10};
         Node head =array2linkedlist(arr);
         
         System.out.print("The linked list is ");
