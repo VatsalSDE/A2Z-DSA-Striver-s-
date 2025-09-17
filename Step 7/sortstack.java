@@ -17,7 +17,6 @@ public class sortstack {
         }
         int temp=st.pop();
         sort(st);
-
         inserinstack(st,temp);
     }
     public static void main(String[] args) {
