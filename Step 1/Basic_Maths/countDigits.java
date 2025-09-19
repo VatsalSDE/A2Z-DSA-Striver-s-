@@ -2,7 +2,6 @@ public class countDigits {
    public static void main(String[] args) {
     int n=123454345;
     int count=0;
-    int div=0;
 
     while(n>0){
         count++;
