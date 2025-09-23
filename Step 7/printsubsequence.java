@@ -7,7 +7,7 @@ public class printsubsequence {
         if(ind==n){
             if(s==sum){
                 count++;
-                System.out.println(drr);
+                System.out.println(drr);    
             }
             return;
         }

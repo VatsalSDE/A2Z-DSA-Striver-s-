@@ -14,7 +14,6 @@ public class printcountsubsequence {
         int left = printsubsequence(ind+1,s,sum,arr,n);
         s-=arr[ind];
         
-
         // now the not take portion
         int right = printsubsequence(ind+1,s,sum,arr,n);
         return left + right;
