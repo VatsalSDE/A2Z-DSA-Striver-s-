@@ -11,7 +11,6 @@ class Node{
         this.data=data1;
         this.next=null;
     }
-
 }
 
 public class middleoflinkedlist {
