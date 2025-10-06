@@ -1,7 +1,8 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-class Node {
+// Two sum problem in linked list - find pair that adds to target
+class ListNode{
    int data;
    Node next;
    Node back;

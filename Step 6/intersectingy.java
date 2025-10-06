@@ -1,13 +1,19 @@
-class Node {
+// Find intersection point of two linked lists (Y-shaped)
+class ListNode{
     int data;
-    Node next;
+    ListNode next;
 
-    Node(int val) {
-        data= val;
-        next = null;
+    ListNode(int data1 , ListNode next1){
+        this.data=data1;
+        this.next=next1;
     }
-}
 
+    ListNode(int data1){
+        this.data=data1;
+        this.next=null;
+    }
+
+}
 public class intersectingy {
     private static Node insertNode(Node head, int val) {
         Node newnode = new Node(val);

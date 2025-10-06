@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+// Node class for linked list palindrome check
 class ListNode{
     int data;
     ListNode next;
@@ -16,19 +17,21 @@ class ListNode{
 
 }
 
+// Check if linked list is palindrome - two approaches
 public class palindrome {
-    // bruteforce using stack
+    // Approach 1: Brute force using stack - O(n) space
     public static boolean palibrute(ListNode head){
          Stack <Integer> st = new Stack<>();
          ListNode temp=head;
 
-        // this is step 1 where we are pushing the linked list data in to the stack
+        // Push all elements to stack
         while(temp!=null){
             st.push(temp.data);
             temp=temp.next;
         }
         temp=head;
 
+        // Compare with popped elements (reverse order)
         while(temp!=null){
             int check=st.pop();
             if(temp.data!=check){
@@ -39,6 +42,7 @@ public class palindrome {
         return true;
     }
 
+    // Helper: Reverse linked list recursively
     private static ListNode reverserecursive(ListNode head){
         if(head == null || head.next ==null){
             return head;
@@ -51,21 +55,21 @@ public class palindrome {
         return newnode;
     }
 
-    // optimal :- middle -> reverse -> comparison
+    // Approach 2: Optimal - find middle, reverse second half, compare
     public static boolean palioptimal(ListNode head){
         ListNode slow = head;
         ListNode fast = head;
 
-        // here in the while first condition for odd length and second for the even length
-        // step 1 finding the reverse 
+        // Step 1: Find middle using slow-fast pointers
         while(fast.next!=null && fast.next.next!= null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        //step2 reversing the linked list
+        
+        // Step 2: Reverse second half
         ListNode newhead = reverserecursive(slow.next);
 
-        // step 3 comaparison
+        // Step 3: Compare first half with reversed second half
         ListNode first = head;
         ListNode second = newhead;
 
@@ -81,7 +85,7 @@ public class palindrome {
             }
         }
 
-        // again reverse the part of the linke dthat we reversed so the linked list comes in it state
+        // Step 4: Restore original list structure
         reverserecursive(newhead);
 
         return flag;

@@ -1,14 +1,17 @@
+// Merge Sort: Divide & Conquer - Split array, recursively sort halves, merge sorted arrays
 public class mergesort {
 
+    // Merge two sorted arrays into one sorted array using 3 pointers
     private static int[] merge(int[] a , int[] b, int[] arr){
         // taking three pointers for the three arrays 
-        int i=0;
-        int j=0;
-        int k=0;
+        int i=0; // Pointer for array a
+        int j=0; // Pointer for array b
+        int k=0; // Pointer for merged array
 
         int n=a.length;
         int m=b.length;
 
+        // Compare elements from both arrays and merge in sorted order
         while(i<n && j<m){
             if(a[i]<=b[j]){
                 arr[k]=a[i];
@@ -22,6 +25,7 @@ public class mergesort {
             }
         }
 
+        // Add remaining elements from either array
         if(i==n){
             while(j<m){
                 arr[k]=b[j];
@@ -40,26 +44,28 @@ public class mergesort {
         return arr;
     }
 
+    // Main merge sort function: recursively divide array into halves
     private static void mergesortarray(int[] arr){
         int n=arr.length;
-        if(n==1) return;
+        if(n==1) return; // Base case: single element
 
-        // this is every time we are dividing the array into two parts till we have single elements  
+        // Divide array into two halves
         int[] a=new int[n/2];
         int[] b=new int[n-n/2];
 
-        // now copypaste the elements of the array into both arrays accoridingly 
+        // Copy elements to left and right subarrays
         for(int i=0 ; i<n/2;i++) a[i]=arr[i];
 
         for(int i=0;i<n-n/2;i++) b[i]=arr[i+n/2];
 
+        // Recursively sort both halves
         mergesortarray(a);
         mergesortarray(b);
 
-        // now we will have the magic of recursion merege the two sorted aarrays 
+        // Merge the sorted halves back into original array
         merge(a,b,arr);
 
-        a=null ; b=null;
+        a=null ; b=null; // Clean up memory
     }
     public static void main(String[] args) {
         int[] arr={21,23,34,10,11,20,1,2,20};

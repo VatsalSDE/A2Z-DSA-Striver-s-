@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+// Node class for linked list
 class Node{
     int data;
     Node next;
@@ -16,18 +17,21 @@ class Node{
     }
 
 }
-// bruteforce using hashing
+
+// Find length of loop in linked list - two approaches
 public class lengthofloop {
+    // Approach 1: HashMap to track position of each node
     private static int looplength(Node head){
         if(head == null || head.next == null){
             return 0;
         }
         Map <Node , Integer> mpp = new HashMap<>();
-        int timer =1; // for traking the count
+        int timer =1; // Track position in traversal
         Node temp=head;
 
         while(temp!=null){
             if(mpp.containsKey(temp)){
+                // Found loop, return difference in positions
                 return timer-mpp.get(temp);
             }
             else{
@@ -36,11 +40,10 @@ public class lengthofloop {
                 temp=temp.next;
             }
         }
-        return 0;
+        return 0; // No loop found
     }
 
-    // optimal using tortoise hair method
-
+    // Approach 2: Tortoise-Hare method (optimal)
     private static int lengthoptimal(Node head){
         if(head==null || head.next==null){
             return 0;
@@ -49,15 +52,17 @@ public class lengthofloop {
         Node slow=head;
         Node fast=head;
 
+        // Step 1: Detect if loop exists using slow-fast pointers
         while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
 
             if(slow==fast){
-               // step 1 completed checked that loop is there
+               // Step 2: Loop detected, count its length
                int cnt=1;
                slow=slow.next;
 
+               // Move slow until it meets fast again
                while(slow!=fast){
                     slow=slow.next;
                     cnt++;
@@ -66,7 +71,7 @@ public class lengthofloop {
             }
         }
 
-        return 0;
+        return 0; // No loop found
     }
     
     public static void main(String[] args) {

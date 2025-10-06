@@ -1,3 +1,4 @@
+// Quick Sort: Divide & Conquer - Pick pivot, partition around it, recursively sort left & right
 public class algo_quick_sort {
     public static void print(int[] arr){
         for (int i : arr) {
@@ -5,16 +6,19 @@ public class algo_quick_sort {
         }
     }
     
+    // Helper method to swap elements
     public static void swap(int[] arr, int pivotidx , int correctidx){
         int temp=arr[pivotidx];
         arr[pivotidx]=arr[correctidx];
         arr[correctidx]=temp;
     }
 
+    // Partition: Place pivot in correct position, smaller elements to left, larger to right
     public static int partitionidx(int[] arr , int low , int high){
         int pivot=arr[low] ;
         int pivotidx=low;
 
+        // Count elements <= pivot to find correct position
         int smallercount=0;
 
         for(int i=low+1;i<=high;i++){
@@ -24,6 +28,7 @@ public class algo_quick_sort {
         int correctidx=smallercount+pivotidx; // this is the correct index of the pivot element where we have to shift it
         swap(arr, pivotidx, correctidx);
 
+        // Two-pointer approach: arrange elements around pivot
         int i=low;
         int j=high;
 
@@ -39,15 +44,14 @@ public class algo_quick_sort {
 
     }
 
+    // Main Quick Sort: Recursively sort left and right subarrays
     public static void quicksort(int[] arr , int low , int high){
-        if(low>=high) return;
+        if(low>=high) return; // Base case: single element or empty
 
-        // here pivot element is arr[low] so put it at right position
-        // and in left part me <=pivot 
-
+        // Partition array and get pivot's final position
         int idx=partitionidx(arr,low,high);
-        quicksort(arr, low, idx-1);
-        quicksort(arr, idx+1, high);
+        quicksort(arr, low, idx-1);  // Sort left subarray
+        quicksort(arr, idx+1, high); // Sort right subarray
         
     }
     public static void main(String[] args) {

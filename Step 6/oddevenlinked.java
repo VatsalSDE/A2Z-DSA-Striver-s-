@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// Node class for linked list
 class ListNode{
     int data;
     ListNode next;
@@ -16,8 +17,10 @@ class ListNode{
 
 }
 
+// Segregate odd and even positioned nodes - two approaches
 public class oddevenlinked {
 
+    // Approach 1: Store in array then rebuild - O(n) space
     private static ListNode brutesol(ListNode head){
         if(head==null || head.next==null){
             return head;
@@ -27,14 +30,14 @@ public class oddevenlinked {
 
         ListNode temp=head;
         
-        // for odd index data
+        // Store all odd positioned nodes first
         while(temp!=null && temp.next!=null){
             arr.add(temp.data);
             temp=temp.next.next;
         }
         if(temp!=null) arr.add(temp.data); 
 
-        // for even indexed data
+        // Then store all even positioned nodes
         temp=head.next;
         
         while(temp!=null && temp.next!=null){
@@ -43,7 +46,7 @@ public class oddevenlinked {
         }
         if(temp!=null) arr.add(temp.data);
 
-        // now replacing the data
+        // Replace original list data with segregated data
         temp=head;
         int i=0;
 
@@ -55,19 +58,23 @@ public class oddevenlinked {
         return head;
     }
 
+    // Approach 2: Optimal - rearrange links directly O(1) space
     private static ListNode optimaloddeven(ListNode head){
         ListNode odd=head;
         ListNode even=head.next;
-        ListNode evennode = head.next; // this node is for connecting the odd and even nodes linked list
+        ListNode evennode = head.next; // Keep reference to even list start
         
+        // Separate odd and even positioned nodes
         while(odd.next!=null && even.next!=null){
-            odd.next=even.next;
+            odd.next=even.next;  // Connect odd to next odd
             odd=odd.next;
 
-            even.next=odd.next;
+            even.next=odd.next;  // Connect even to next even
             even=even.next;
         }
-        odd.next=evennode; // connecting odd and even nodes linked list
+        
+        // Connect end of odd list to start of even list
+        odd.next=evennode;
         return head;
     }
 

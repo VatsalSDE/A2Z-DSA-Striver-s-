@@ -1,3 +1,4 @@
+// Node class for doubly linked list with next and back pointers
 class Node{
     int data;
     Node next;
@@ -17,6 +18,7 @@ class Node{
 
 public class DoublYLinkedList {
 
+    // Print doubly linked list
     private static void print(Node head){
         while(head != null){
             System.out.print(head.data + " -> ");
@@ -25,6 +27,7 @@ public class DoublYLinkedList {
         System.out.println();
     }
 
+    // Convert array to doubly linked list - link next and back pointers
     private static Node array2linkedlist(int[] arr){
         Node head = new Node(arr[0]);
         Node prev=head;
@@ -37,6 +40,7 @@ public class DoublYLinkedList {
         return head;
     }
 
+    // Delete head node - update back pointer of new head
     private static Node deletehead(Node head){
         if(head == null || head.next==null){
             return null;
@@ -49,6 +53,8 @@ public class DoublYLinkedList {
 
         return head;
     }
+    
+    // Delete tail node - update next pointer of second last node
     private static Node deleteTail(Node head){
         if(head == null || head.next==null){
             return null;
@@ -66,6 +72,7 @@ public class DoublYLinkedList {
 
         return head; 
     }
+    // Delete kth node - handle head/tail/middle cases differently
     private static Node deleteKth(Node head ,int k){
         Node temp=head;
         int count=0;
@@ -98,6 +105,8 @@ public class DoublYLinkedList {
         }
         return head;
     }
+    
+    // Delete given node - adjust prev and next pointers (node never head)
     private static void deleteNode(Node temp){
         // in this question we will never be asked to delete the head
         Node prev=temp.back;
@@ -117,12 +126,15 @@ public class DoublYLinkedList {
         }
     }
 
+    // Insert at head - create new node and update back pointer of old head
     private static Node insertHead(Node head , int value){
         Node newNode = new Node(value,head,null);
         head.back=newNode;
 
         return newNode;
     }
+    
+    // Insert at tail - traverse to end and add new node
     private static Node insertTail(Node head , int value){
         if(head.next==null && head.back==null){
             return insertHead(head, value);
@@ -141,6 +153,7 @@ public class DoublYLinkedList {
 
     }
 
+    // Insert at kth position - traverse to position and insert
     private static Node insertatK(Node head , int k , int value){
         if(k==1){
             return insertHead(head, value);
@@ -161,6 +174,8 @@ public class DoublYLinkedList {
 
         return head;
     }
+    
+    // Insert before given node - adjust pointers around new node
     private static void insertatNode(Node temp , int value){
         Node prev=temp.back;
         Node newNode = new Node(value,temp,prev);

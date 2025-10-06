@@ -1,3 +1,4 @@
+// Node class for singly linked list
 class Node{
     int data;
     Node next;
@@ -15,6 +16,7 @@ class Node{
 }
 
 public class LinkedList {
+    // Convert array to linked list - creates head and links all nodes
     private static Node convertArr2LL(int[] arr){
         Node head = new Node(arr[0]);
         Node mover = head;
@@ -28,6 +30,7 @@ public class LinkedList {
         return head;
     }
 
+    // Count length of linked list - traverse and increment counter
     private static int lengthoflinked(Node head){
         int cnt=0;
 
@@ -38,6 +41,8 @@ public class LinkedList {
         }                                // traversal code 
         return cnt;
     }
+     
+     // Search for element in linked list - return 1 if found, 0 if not
      public static int checkifPresent(Node head, int desiredElement) {
         Node temp = head;
 
@@ -53,6 +58,7 @@ public class LinkedList {
 
         return 0;  // Return 0 if the element is not found in the linked list
     }
+    // Print linked list elements
     private static void print(Node head){
         while(head != null){
             System.out.print(head.data + " -> ");
@@ -61,12 +67,14 @@ public class LinkedList {
         System.out.println();
     }
 
+    // Remove head node - return new head
     private static Node removeHead(Node head){
         if(head == null) return head;
         head=head.next;
         return head;
     }
 
+    // Remove tail node - traverse to second last and set next to null
     private static Node removeTail(Node head){
         if(head == null || head.next==null) return head;
         Node temp = head;
@@ -78,6 +86,7 @@ public class LinkedList {
         return head;
     }
 
+    // Remove kth node - traverse to position k and adjust links
     private static Node removeKthelement(Node head , int k){
         if(head == null) return head;
         if(k==1){
@@ -100,6 +109,7 @@ public class LinkedList {
         return head;
     }
 
+    // Remove node with specific value - find and delete first occurrence
     private static Node removeelement(Node head , int ele){
         if(head == null) return head;
         if(head.data==ele){

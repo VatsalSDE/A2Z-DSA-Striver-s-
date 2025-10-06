@@ -1,3 +1,4 @@
+// Node class for linked list
 class ListNode{
     int data;
     ListNode next;
@@ -14,21 +15,22 @@ class ListNode{
 
 }
 
+// Remove nth node from end of linked list - two approaches
 public class removenthnode {
-    // bruteforce 
+    // Approach 1: Count length, then remove (length-n+1)th from start
     private static ListNode brutenthnode(ListNode head , int n){
         if(head==null || (head.next==null && n==1) ){
             return null;
         }
         int count=0;
-        // count number of nodes
+        // Count total nodes
         ListNode temp = head;
         while(temp!=null){
             count++;
             temp=temp.next;
         }
 
-        // edge case if n is equal to lengthso delete head 
+        // If n equals length, remove head 
         if(count==n){
             // delete head node 
             return head.next;

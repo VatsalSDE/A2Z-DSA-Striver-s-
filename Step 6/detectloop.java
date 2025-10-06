@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+// Node class for linked list
 class Node{
     int data;
     Node next;
@@ -17,6 +18,7 @@ class Node{
 
 }
 
+// Detect cycle in linked list using HashMap approach
 public class detectloop {
     public static void main(String[] args) {
         Node head = new Node(1);
@@ -32,22 +34,23 @@ public class detectloop {
         // Create a loop
         fifth.next = null;
 
-        // this is the map we have made for the traking or frequency can say 
+        // Approach: Use HashMap to track visited nodes
+        // If we encounter same node again, there's a cycle
         Map <Node,Integer> mpp = new HashMap<>();
-        // now checking if it makes a cycle or not 
-        // BRUTEFORCE
         Node temp=head;
         boolean flag=false;
+        
         while (temp!=null) {
             if(mpp.containsKey(temp)==true){
-                flag=true;
+                flag=true;  // Found cycle - node visited before
                 break;
             }
             else{
-                mpp.put(temp,1);
+                mpp.put(temp,1);  // Mark node as visited
                 temp=temp.next;
             }
         }
+        
         if(flag==true){
             System.out.println("yes it forms a cycle");
         }

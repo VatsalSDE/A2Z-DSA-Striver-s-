@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
+// Flatten a multilevel linked list (nodes have down pointers)
 class Node {
     int data;
     Node next;

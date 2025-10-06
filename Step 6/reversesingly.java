@@ -1,5 +1,6 @@
 import java.util.Stack;
 
+// Node class for singly linked list
 class Node{
     int data;
     Node next;
@@ -16,6 +17,7 @@ class Node{
 
 }
 
+// Three approaches to reverse singly linked list
 public class reversesingly {
     private static Node convertArr2LL(int[] arr){
         Node head = new Node(arr[0]);
@@ -29,6 +31,7 @@ public class reversesingly {
 
         return head;
     }
+    
     private static void print(Node head){
         while(head != null){
             System.out.print(head.data + " -> ");
@@ -37,7 +40,7 @@ public class reversesingly {
         System.out.println();
     }
 
-    // using stack data structure
+    // Approach 1: Using stack - push all data, then pop back to nodes
     private static Node reversestack(Node head){
         Node temp=head;
         Stack <Integer> st = new Stack<>(); 
@@ -59,6 +62,7 @@ public class reversesingly {
         return head;
     }
 
+    // Approach 2: Iterative - use three pointers (prev, temp, front)
     public Node reverseListiterative(Node head) {
         if(head==null || head.next==null){
             return head;
@@ -68,22 +72,23 @@ public class reversesingly {
         Node prev=null;
 
         while(temp!=null){
-            Node front=temp.next;
-            temp.next=prev;
-            prev=temp;
-            temp=front;
+            Node front=temp.next;  // Store next before changing
+            temp.next=prev;        // Reverse the link
+            prev=temp;             // Move prev forward
+            temp=front;            // Move temp forward
         }
-        return prev;
+        return prev;  // prev is new head
     }
 
+    // Approach 3: Recursive - reverse rest, then adjust current links
     private static Node reverserecursive(Node head){
         if(head == null || head.next ==null){
-            return head;
+            return head;  // Base case
         }
-        Node newnode =reverserecursive(head.next);
+        Node newnode =reverserecursive(head.next);  // Reverse rest
         Node front = head.next;
-        front.next=head;
-        head.next=null;
+        front.next=head;  // Reverse current link
+        head.next=null;   // Break original link
 
         return newnode;
     }

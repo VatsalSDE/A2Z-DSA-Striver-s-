@@ -1,3 +1,4 @@
+// Node class for linked list
 class ListNode{
     int data;
     ListNode next;
@@ -14,6 +15,7 @@ class ListNode{
 
 }
 
+// Sort linked list containing 0s, 1s, 2s - two approaches
 public class sort012 {
     private static void print(ListNode head){
         while(head != null){
@@ -23,6 +25,7 @@ public class sort012 {
         System.out.println();
     }
 
+    // Approach 1: Count occurrences, then replace data
     private static ListNode brutesolution(ListNode head){
         if(head==null || head.next==null){
             return head;

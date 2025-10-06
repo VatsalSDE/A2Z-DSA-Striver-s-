@@ -1,3 +1,4 @@
+// Node class for linked list
 class Node{
     int data;
     Node next;
@@ -14,9 +15,9 @@ class Node{
 
 }
 
+// Add 1 to a number represented as linked list
 public class addonetoanum {
-    //printing the linked list
-
+    // Print the linked list
     private static void print(Node head){
         while(head != null){
             System.out.print(head.data + " -> ");
@@ -24,7 +25,8 @@ public class addonetoanum {
         }
         System.out.println();
     }
-    // reverse the linked list
+    
+    // Reverse the linked list recursively
     private static Node reverserecursive(Node head){
         if(head == null || head.next ==null){
             return head;
@@ -37,28 +39,32 @@ public class addonetoanum {
         return newnode;
     }
 
+    // Approach: Reverse -> Add 1 from end -> Handle carry -> Reverse back
     private static Node addnumber(Node head){
-        // first reverse the linked list
+        // Step 1: Reverse to process from least significant digit
         head=reverserecursive(head);
         Node temp=head;
 
-        int carry=1;
+        int carry=1;  // We need to add 1
 
+        // Step 2: Add 1 and handle carry propagation
         while(temp!=null){
-             temp.data=temp.data+carry; // add one 
+             temp.data=temp.data+carry;
              if(temp.data<10){
-                carry=0;
+                carry=0;  // No more carry needed
                 break;
              }
              else{
-                temp.data=0;
+                temp.data=0;  // Set to 0 and carry forward
                 carry=1;
              }
              temp=temp.next;
         }
         
+        // Step 3: Reverse back to original order
         head=reverserecursive(head);
 
+        // Step 4: If carry remains, add new node at beginning
         if(carry==1){
             Node newnode = new Node(1);
             newnode.next=head;
