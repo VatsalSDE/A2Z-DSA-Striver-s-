@@ -8,5 +8,10 @@ public class countDigits {
         n=n/10;
     }
     System.out.println(count);
+
+    // optimal method 
+    // int countopt=0;
+    // countopt=(int)(Math.log10(n)+1);
+    // System.out.println(countopt);
    } 
 }
