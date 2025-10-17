@@ -7,6 +7,7 @@ public class printntimes {
         }
         System.out.println("Hello Vatsal");
         print(n-1);
+        
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
