@@ -8,12 +8,20 @@ class stack{
         arr[top]=x;
     }
     int pop(){
+        if(top==-1){
+            System.out.println("The stack is empty ");
+            return -1;
+        }
         int x=arr[top];
         top--;
 
         return x;
     }
     int peek(){
+        if(top==-1){
+            System.out.println("The stack is empty ");
+            return -1;
+        }
         return arr[top];
     }
     int size(){
@@ -27,6 +35,8 @@ public class implementstusingarray {
         stack st=new stack();
         st.push(3);
         st.push(12);
+        st.pop();
+        st.pop();
         int topmost = st.peek();
         int length=st.size();
 

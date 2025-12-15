@@ -6,5 +6,7 @@ public class introduction {
         st.push(2);
         st.push(13);
         st.push(10);
+
+        System.out.println(st);
     }
 }

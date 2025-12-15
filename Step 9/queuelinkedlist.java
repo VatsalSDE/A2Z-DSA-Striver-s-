@@ -7,7 +7,6 @@ class queuenode{
         this.next=null;
     }
 }
-
 public class queuelinkedlist {
     queuenode start=null , end=null;
     int size =0;
@@ -48,7 +47,6 @@ public class queuelinkedlist {
         }
         return popped;
     }
-
     int size(){
         return size;
     }
