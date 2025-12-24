@@ -5,11 +5,9 @@ public class converttodecimal {
         int power=0;
 
         for(int i=n-1;i>=0;i--){
-
             int bit = s.charAt(i) - '0'; // converting the char to bit     
             sum+=bit*Math.pow(2, power);
-            power++;
-
+            power++;  
         }
         return sum;
     }
@@ -19,7 +17,7 @@ public class converttodecimal {
         int n=s.length();
         int power=1;
         int sum=0;
-
+                
         for(int i=n-1 ; i>=0; i--){
             if(s.charAt(i)=='1'){
                 sum+=power;
