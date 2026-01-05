@@ -17,8 +17,7 @@ public class bubblesort {
                 }
             }
             if(flag) break; // No swaps made, array is sorted
-        }
-
+        } 
         for (int i : arr) {
             System.out.print(i + " ");
         }

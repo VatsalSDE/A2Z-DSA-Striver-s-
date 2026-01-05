@@ -20,14 +20,11 @@ public class algo_quick_sort {
 
         // Count elements <= pivot to find correct position
         int smallercount=0;
-
         for(int i=low+1;i<=high;i++){
             if(arr[i]<=pivot) smallercount++;
         }
-
         int correctidx=smallercount+pivotidx; // this is the correct index of the pivot element where we have to shift it
         swap(arr, pivotidx, correctidx);
-
         // Two-pointer approach: arrange elements around pivot
         int i=low;
         int j=high;
@@ -41,9 +38,7 @@ public class algo_quick_sort {
             }
         }
         return correctidx;
-
     }
-
     // Main Quick Sort: Recursively sort left and right subarrays
     public static void quicksort(int[] arr , int low , int high){
         if(low>=high) return; // Base case: single element or empty
