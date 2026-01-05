@@ -8,59 +8,59 @@ public class longestsubarraywithsumkposi {
 
     public static void main(String[] args) {
         // longest subarray with given sum k positives 
-        int[] arr = {2,5,3,4,6};
+        int[] arr = {6,4,3,2,5};
         int n=arr.length;
 
-        int k=7;
+        int k=10;
 
         // better approach same works for the posi + negative also 
-        // HashMap<Integer, Integer> presum = new HashMap<>();
+        HashMap<Integer, Integer> presum = new HashMap<>();
 
-        // int sum=0;
-        // int maxlen=0;
+        int sum=0;
+        int maxlen=0;
 
-        // for(int i=0;i<n;i++){
-        //     sum+=arr[i];
-        //     if(sum==k){
-        //         maxlen=Math.max(maxlen, i+1);
-        //     }
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+            if(sum==k){
+                maxlen=Math.max(maxlen, i+1);
+            }
 
-        //     // calculate the remaing part 
-        //     int rem = sum-k;
+            // calculate the remaing part 
+            int rem = sum-k;
 
-        //     if(presum.containsKey(rem)){
-        //         int len = i-presum.get(rem);
-        //         maxlen=Math.max(maxlen, len);
-        //     }
-        //     if(!presum.containsKey(sum)){
-        //         presum.put(sum, i);
-        //     }
-        // }
+            if(presum.containsKey(rem)){
+                int len = i-presum.get(rem);
+                maxlen=Math.max(maxlen, len);
+            }
+            if(!presum.containsKey(sum)){
+                presum.put(sum, i);
+            }
+        }
         
 
 
         // optimal method
-        int left =0;
-        int right =0;
+        // int left =0;
+        // int right =0;
 
-        int maxlen=0;
-        int sum=0;
+        // int maxlen=0;
+        // int sum=0;
 
-        while(right < n){
-            sum+=arr[right];
+        // while(right < n){
+        //     sum+=arr[right];
 
-            while (sum>k && left<=right) {
-                sum-=arr[left];
-                left++;
-            }
-            if(sum==k){
-                maxlen=Math.max(maxlen,right-left+1);
-            }
+        //     while (sum>k && left<=right) {
+        //         sum-=arr[left];
+        //         left++;
+        //     }
+        //     if(sum==k){
+        //         maxlen=Math.max(maxlen,right-left+1);
+        //     }
 
             
-            right++;
+        //     right++;
             
-        }
+        // }
 
         System.out.println(maxlen);
     }
