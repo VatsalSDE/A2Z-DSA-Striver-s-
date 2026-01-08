@@ -25,7 +25,7 @@ public class longestsubarraywithsumkposi {
                 maxlen=Math.max(maxlen, i+1);
             }
 
-            // calculate the remaing part 
+            // calculate the remaining part 
             int rem = sum-k;
 
             if(presum.containsKey(rem)){

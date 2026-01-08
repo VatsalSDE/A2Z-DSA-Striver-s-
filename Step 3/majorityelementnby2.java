@@ -16,7 +16,6 @@ public class majorityelementnby2 {
                 mp.put(arr[i], 1);
             }
         }
-
         for(HashMap.Entry<Integer,Integer> it : mp.entrySet()){
             if(it.getValue()>n/2){
                 System.out.println("The majority element is "+it.getKey());
