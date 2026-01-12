@@ -1,38 +1,41 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class misc {
 
-  private static void swap(int[] arr , int i , int j){
-    int temp=arr[i];
-    arr[i]=arr[j];
-    arr[j]=temp;
-  }
-  public static void main(String[] args) {
-        int[] arr = {-2,1,-3,4,-1,2,1,-5,4};
-        // now this is the extended of the subarray probelm so here we need to print the subarray also that gave us the maximum sum
-        int n=arr.length;
-        int maxsum=Integer.MIN_VALUE;
-        int sum=0;
 
-        int start=0;
-        int end=0;
+  public static void main(String[] args) {
+        int[] arr = {3,1,-2,-5,2,-4};
+        int n=arr.length;
+
+        ArrayList<Integer> pos=new ArrayList<>();
+        ArrayList<Integer> neg=new ArrayList<>();
 
         for(int i=0;i<n;i++){
-          sum+=arr[i];
+            if(arr[i]>=0){
+                pos.add(arr[i]);
+            }
+            else{
+                neg.add(arr[i]);
+            }
+        }
 
-          if(sum>maxsum){
-            maxsum=sum;
-            end=i;
-          }
-          if(sum<0){
-            sum=0;
-            start=i+1;
-          }
+        // now we have to asign the elemnt in the pos and neg order
+        int p=0;
+        int ng=0;
+        for(int i=0;i<n;i++){
+            if(i%2==0){
+                arr[i]=pos.get(p);
+                p++;
+            }
+            else{
+                arr[i]=neg.get(ng);
+                ng++;
+            }
         }
-        System.out.println("The maximum subarray sum is "+maxsum);
-        System.out.println("The subarray is ");
-        for(int i=start;i<=end;i++){
-          System.out.print(arr[i]+" ");
+        for(int i=0;i<n;i++){
+            System.out.print(arr[i] + " ");
         }
+        
   }
 }
