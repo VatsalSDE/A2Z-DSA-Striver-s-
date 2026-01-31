@@ -12,7 +12,6 @@ public class largestelement {
                 largest=arr[i];
             }
         }
-
         System.out.println("The largest element in the array is "+largest);
     }
 }

@@ -37,8 +37,6 @@ public class longestsubarraywithsumkposi {
             }
         }
         
-
-
         // optimal method
         // int left =0;
         // int right =0;

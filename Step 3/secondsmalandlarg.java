@@ -26,6 +26,6 @@ public class secondsmalandlarg {
                 secondlargest=arr[i];
             }
         }
-        System.out.println("The second smallest element is "+secondsmallest+" and the second largest element is "+secondlargest);
+        System.out.println("The second smallest element  is "+secondsmallest+" and the second largest element is "+secondlargest);
     }
 }
