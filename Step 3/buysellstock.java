@@ -1,6 +1,6 @@
 public class buysellstock {
     public static void main(String[] args) {
-        int[] price={7,3,5,1,2,2};
+        int[] price={7,1,5,3,6,4};
         int n=price.length;
 
 
@@ -24,12 +24,19 @@ public class buysellstock {
         int minprice = Integer.MAX_VALUE;
         int maxprofit =0;
         for(int i=0;i<n;i++){
-            if(price[i]<minprice){
-                minprice=price[i];
-            } else if(price[i]-minprice>maxprofit){
-                maxprofit=price[i]-minprice;
-            }
+            minprice=Math.min(minprice, price[i]);
+            maxprofit=Math.max(maxprofit, price[i]-minprice);
         }
         System.out.println(maxprofit);
+
+        // now for specially the gfg question the simple change is that the like it takes multiple transactions also okk so yeah now go for it 
+        int profit =0;
+
+        for(int i=1;i<n;i++){
+            if(price[i]>price[i-1]){
+                profit+=price[i]-price[i-1];
+            }
+        }
+        System.out.println(profit);
     }
 }
