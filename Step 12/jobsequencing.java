@@ -6,7 +6,7 @@ public class jobsequencing {
         int id;
         int deadline;
         int profit;
-
+        
         job(int id,int deadline,int profit){
             this.id=id;
             this.deadline=deadline;

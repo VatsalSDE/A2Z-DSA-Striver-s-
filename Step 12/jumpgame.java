@@ -16,7 +16,6 @@ public class jumpgame {
     }
     public static void main(String[] args) {
         int[] jump={1,2,4,1,1,0,2,5};
-        int n=jump.length;
 
         System.out.println(checkpossible(jump));
     }
