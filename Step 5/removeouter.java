@@ -11,24 +11,19 @@ public class removeouter {
         StringBuilder result = new StringBuilder();
 
         for(int i=0; i<n;i++){
-
             if(s.charAt(i) == '('){
-
                 if(count > 0){
                 result.append('(');
                 }
-
                 count++; // if '(' opening is found then increment it 
             }
-
             else {
                 count--; // here if ')' is found then decrement the count and here we have written the statment first so that the the proper parenthesis are print
-
+                
                 if(count > 0){
                     result.append(')');
                 }
             }
-
         }
         System.out.println(result.toString());
     }
