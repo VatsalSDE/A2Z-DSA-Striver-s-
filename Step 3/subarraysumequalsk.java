@@ -13,7 +13,6 @@ public class subarraysumequalsk {
         
         for(int i=0;i<arr.length;i++){
             prefixsum+=arr[i];
-
             if(mp.containsKey(prefixsum-k)){
                 count+=mp.get(prefixsum-k);
             }

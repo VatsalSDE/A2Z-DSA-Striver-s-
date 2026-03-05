@@ -9,7 +9,7 @@ public class setmatrixzero {
         // boolean[] row = new boolean[n];
         // boolean[] col = new boolean[m];
 
-        // // now we will mark the particluar row and column as true where matrix[i][j]==0
+        // now we will mark the particluar row and column as true where matrix[i][j]==0
 
         // for(int i=0;i<n;i++){
         //     for(int j=0;j<m;j++){
@@ -20,9 +20,9 @@ public class setmatrixzero {
         //     }
         // }
 
-        // // now we will mark the elements 0
+         // now we will mark the elements 0
 
-        // // first setting the rows 
+        // first setting the rows 
         // for(int i=0;i<n;i++){
         //     if(row[i]){
         //         for(int j=0;j<m;j++){
@@ -30,7 +30,7 @@ public class setmatrixzero {
         //         }
         //     }
         // }
-        // // now setting the columns
+        // now setting the columns
         // for(int j=0;j<m;j++){
         //     if(col[j]){
         //         for(int i=0;i<n;i++){

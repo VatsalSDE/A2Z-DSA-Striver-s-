@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 public class assigncookies {
     public static void main(String[] args) {
-        int[] greed = {1,3,3,4,5};
-        int[] size =  {1,2,2,3,4};
+        int[] greed = {1,2,3};
+        int[] size =  {1,1};
 
         int left=0;
         int right=0;
@@ -12,14 +12,11 @@ public class assigncookies {
         Arrays.sort(size);
 
         while(left<greed.length && right<size.length){
-            if(size[left]>=greed[right]){
-                left++;
-                right++;
-            }
-            else{
+            if(size[right]>=greed[left]){
                 left++;
             }
+            right++;
         }
-        System.out.println(right);
+        System.out.println(left);
     }
 }
