@@ -3,30 +3,33 @@ import java.util.HashMap;
 public class isomorphicString {
 
     private static boolean checkIsomorphic(String s , String t){
-        if(s.length() != t.length()){
+       if(s.length() != t.length()){
             return false;
-        }
+       }
 
-        int n=s.length();
-        HashMap<Character,Character> mp = new HashMap<>();
+       HashMap<Character,Character> mp=new HashMap<>();
+       int n=s.length();
 
-        for(int i=0;i<n;i++){
-            char c1=s.charAt(i);
-            char c2=t.charAt(i);
+       for(int i=0;i<n;i++){
+        char cs=s.charAt(i);
+        char ct=t.charAt(i);
 
-            if(mp.containsKey(c1)){
-                if(mp.get(c1)!=c2){
-                    return false;
-                }
+        if(mp.containsKey(cs)){
+            if(mp.get(cs) == ct){
+                continue;
             }
             else{
-                if(mp.containsValue(c2)){
-                    return false;
-                }
-                mp.put(c1,c2);
+                return false;
             }
         }
-        return true;
+        else{
+            if(mp.containsValue(ct)){
+                return false;
+            }
+            mp.put(cs, ct);
+        }
+       }
+         return true;
     }
     public static void main(String[] args) {
         String s = "egg";

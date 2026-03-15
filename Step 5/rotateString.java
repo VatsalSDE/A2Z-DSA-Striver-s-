@@ -1,5 +1,4 @@
 public class rotateString {
-
     private static boolean rotateCheck(String s , String goal){
         if(s.length() != goal.length()){
             return false;
