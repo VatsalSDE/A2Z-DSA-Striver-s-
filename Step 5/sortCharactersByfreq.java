@@ -26,7 +26,6 @@ public class sortCharactersByfreq {
                 ans.append(c);
             }
         }
-
         System.out.println("The final output is the ");
         System.out.println(ans.toString());
     }

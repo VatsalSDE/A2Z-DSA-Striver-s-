@@ -15,9 +15,9 @@ public class Anangram {
         for(int i=0;i<n;i++){
             char c1=s.charAt(i);
             char c2=t.charAt(i);
-            s1.put(c1,s1.getOrDefault(c1, 1)+1);
+            s1.put(c1,s1.getOrDefault(c1, 0)+1);
 
-            t2.put(c2,t2.getOrDefault(c2, 1)+1);
+            t2.put(c2,t2.getOrDefault(c2, 0)+1);
         }
 
         for(char c : s1.keySet()){
