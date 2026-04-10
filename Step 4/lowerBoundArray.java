@@ -15,7 +15,7 @@ public class lowerBoundArray {
             mid=(high-low)/2+low;
 
             if(arr[mid]>=x){
-                ans=Math.min(ans, mid);
+                ans=mid;
                 high=mid-1;
             }
             else{

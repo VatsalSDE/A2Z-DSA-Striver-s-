@@ -16,7 +16,7 @@ public class searchInsertPosition {
             mid=(high-low)/2+low;
 
             if(arr[mid] >= target){
-                ans=Math.min(mid, ans);
+                ans=mid;
                 high=mid-1;
             }
             else{
