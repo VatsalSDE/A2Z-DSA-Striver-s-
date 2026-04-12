@@ -11,9 +11,9 @@ public class upperBound {
         int target=9;
         while(low<=high){
             mid=(high-low)/2 + low;
-            
-            if(arr[mid]>=target){
-                ans=Math.min(ans,mid);
+
+            if(arr[mid]>target){
+                ans=mid;
                 high=mid-1;
             }
             else{

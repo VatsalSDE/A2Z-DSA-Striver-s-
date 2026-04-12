@@ -23,11 +23,11 @@ public class floorandceil {
             mid=(high-low)/2+low;    
 
             if(arr[mid] <= x){
-                floor=Math.max(floor, arr[mid]);
+                floor=arr[mid];
                 low=mid+1;
             }
             else{
-                ceil=Math.min(ceil, arr[mid]);
+                ceil=arr[mid];
                 high=mid-1;
             }
         }
